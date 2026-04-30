@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     
+    <!--Barra superos-->
     <div class="barra">
         <nav id="nav_sup">
             <a href=""><img src="" alt="img" id="a_sup"></a>
@@ -16,31 +16,29 @@
             <a href="edit.ejs" id="a_sup">edita/deletar</a>
         </nav>
     </div>
-
     
-    
-    <div id="main_principal">
-    
-        <div id="main" >
-        <h1 id="titulo">Crie seu post</h1>
-        
-       
-   
+    <!--titulo-->
+    <div id="main" >
+        <h1 id="titulo">Blog Ribeiro</h1>
     </div>
 
-    <div id="form">
-         <form action="/submit" method="post">
-            <label for="titulo_in">Titulo</label>
-            <input type="text" id="titulo_in" name="titulo_in" required>
-            <label for="corpo">Conteúdo</label>
-            <input type="text" id="corpo" name="corpo" required>
-            <input type="submit" value="enviar" id="form_button">
-        </form>
+    <!--postages geradas pela lista-->
+
+    <div id="container_posts">
+    <% if (typeof blogs !== 'undefined' && blogs.length > 0) { %>
+    <% blogs.forEach(element => { %>
+        <div class = "posts_style">
+            <h3><%=element.titulo_in%></h3>
+            <p><%=element.corpo%></p>
+       </div>
+    <% }); } else { %>
+     <div class = "posts_style" style="visibility: hidden;">
+            <h3></h3>
+            <p></p>
+      <% } %> </div>
     </div>
 
-    </div>
-   
-    
+    <!--rodapé-->
     <div id="nav_inf" class="barra">
 
     </div>

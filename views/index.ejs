@@ -7,26 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <!--Barra superos-->
     <div class="barra">
         <nav id="nav_sup">
             <a href=""><img src="" alt="img" id="a_sup"></a>
             <a href="index.ejs" id="a_sup">Inicio</a>
             <a href="create_page.ejs" id="a_sup">Criar</a>
-            <a href="" id="a_sup">edita/deletar</a>
+            <a href="edit.ejs" id="a_sup">edita/deletar</a>
         </nav>
-   
     </div>
     
+    <!--titulo-->
     <div id="main" >
         <h1 id="titulo">Blog Ribeiro</h1>
     </div>
-    <div>
-    
-        
-       <p> <%= locals.blogs %> </p>
-    
+
+    <!--postages geradas pela lista-->
+
+    <div id="container_posts">
+    <% if (typeof blogs !== 'undefined' && blogs.length > 0) { %>
+    <% blogs.forEach(element => { %>
+        <div class = "posts_style">
+            <h3><%=element.titulo_in%></h3>
+            <p><%=element.corpo%></p>
+       </div>
+    <% }); } else { %>
+     <div class = "posts_style" style="visibility: hidden;">
+            <h3></h3>
+            <p></p>
+      
+      <% } %> </div>
     </div>
+
+    <!--rodapé-->
     <div id="nav_inf" class="barra">
 
     </div>

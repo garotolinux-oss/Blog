@@ -21,6 +21,10 @@ app.get("/index.ejs", (req,res) => {
     res.render("index.ejs")
 });
 
+app.get("/edit.ejs", (req, res) => {
+    res.render("edit.ejs")
+})
+
 let blogs = []
 let post = {titulo: "",
     conteudo: ""
