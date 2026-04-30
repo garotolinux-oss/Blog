@@ -109,3 +109,27 @@ form input {
              /* Cria um espaço entre as divs */
 }
 
+/*edit e remove*/
+
+.btn {
+    background-color: #070926;
+    border-radius: 15px;
+    height: fit-content;
+    text-decoration: none;
+    
+}
+
+.btn a {
+    text-decoration: none;
+    color: aliceblue;
+    
+}
+
+.inline_post_top {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 2fr 0.5fr 1fr  ;
+    align-items: center;
+   
+}
+

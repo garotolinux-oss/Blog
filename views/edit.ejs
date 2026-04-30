@@ -28,8 +28,14 @@
     <% if (typeof blogs !== 'undefined' && blogs.length > 0) { %>
     <% blogs.forEach(element => { %>
         <div class = "posts_style">
-            <h3><%=element.titulo_in%></h3>
-            <p><%=element.corpo%></p>
+            <div class="inline_post_top">
+                <h3><%=element.titulo_in%> </h3>
+                
+                <button type="button" class="pen btn"><a href="create_page.ejs">edita</a>></button>
+                <button type="button" class="remove btn" ><a href="create_page.ejs">remove</a></button>
+            </div>
+            
+                <p><%=element.corpo%></p>
        </div>
     <% }); } else { %>
      <div class = "posts_style" style="visibility: hidden;">
@@ -42,5 +48,6 @@
     <div id="nav_inf" class="barra">
 
     </div>
+    
 </body>
 </html>
