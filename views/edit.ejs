@@ -31,8 +31,8 @@
             <div class="inline_post_top">
                 <h3><%=element.titulo_in%> </h3>
                 
-                <button type="button" class="pen btn"><a href="create_page.ejs">edita</a>></button>
-                <button type="button" class="remove btn" ><a href="create_page.ejs">remove</a></button>
+                <button type="button" class="pen btn" onclick="editPost(this)"><p>edita</p></button>
+                <button type="button" class="remove btn" onclick="removePost(this)" ><p>remove</p></button>
             </div>
             
                 <p><%=element.corpo%></p>
@@ -49,5 +49,7 @@
 
     </div>
     
+    
+ <script src="/scripts/edit.js"></script> 
 </body>
 </html>

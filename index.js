@@ -31,6 +31,7 @@ app.get("/edit.ejs", (req, res) => {
     res.render("edit.ejs", {blogs: blogs})
 })
 
+
 //postagem (envio)
 app.post("/submit", (req, res, next) => {
    
@@ -42,7 +43,22 @@ app.post("/submit", (req, res, next) => {
     
 })
 
+//deleta post
 
+app.delete("/delete-post/:titulo", (req, res) => {
+    const tituloparaRemover = req.params.titulo;
+    //filtra a lista removendo o item correspondente
+    blogs = blogs.filter(post => post.titulo_in !== tituloparaRemover)
+
+    res.json({succes: true})
+})
+
+app.put("/put-post/:titulo", (req, res) => {
+    const tituloparaatualizar = req.params.titulo;
+    
+})
+
+app.set("view engine", "ejs");
 //porta
 app.listen(port, () => {
     console.log("sevidor rodando na porta" + port);
