@@ -4,9 +4,10 @@
 function editPost(botao) {
         // 'botao' é o 'this' que você passou no HTML
         // Subimos até a div pai 'inline_post_top' e buscamos o h3
-        const titulo = botao.parentElement.querySelector('h3').innerText;
+        const titulo = botao.parentElement.querySelector('h3').innerText.trim();
         
         console.log("Editando o post:", titulo);
+        window.location.href = '/edit-page/' + encodeURIComponent(titulo);
         
     }
 

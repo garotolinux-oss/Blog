@@ -58,6 +58,34 @@ app.put("/put-post/:titulo", (req, res) => {
     
 })
 
+//edita o post
+
+app.get("/edit-page/:titulo", (req, res) => {
+    const tituloBusca = req.params.titulo;
+    const postEncontrado = blogs.find(p => p.titulo_in === tituloBusca);
+
+    if (postEncontrado) {
+        res.render("create_page", {post: postEncontrado, isEdit: true});
+    } else {
+        res.send("post não encotrando")
+    }
+})
+
+app.post('/update-post/:tituloAntigo', (req, res) => {
+    const tituloAntigo = req.params.tituloAntigo;
+    const {titulo_in, corpo} = req.body;
+
+    //localiza o post na lista e atualiza
+    const index = blogs.findIndex(p => p.titulo_in === tituloAntigo);
+    if (index !== -1) {
+        blogs[index].titulo_in = titulo_in;
+        blogs[index].corpo = corpo;
+
+       
+    } 
+    res.redirect("/index.ejs");
+})
+
 app.set("view engine", "ejs");
 //porta
 app.listen(port, () => {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
      
@@ -29,14 +29,26 @@
     </div>
 
     <div id="form">
-         <form action="/submit" method="post">
-            <label for="titulo_in">Titulo</label>
-            <input type="text" id="titulo_in" name="titulo_in" required>
-            <label for="corpo">Conteúdo</label>
-            <input type="text" id="corpo" name="corpo" required>
-            <input type="submit" value="enviar" id="form_button">
-        </form>
-    </div>
+    <% 
+       // Define as variáveis de controle para evitar erros de 'undefined'
+       const rotaAction = (typeof post !== 'undefined') ? '/update-post/' + post.titulo_in : '/submit';
+       const valorTitulo = (typeof post !== 'undefined') ? post.titulo_in : '';
+       const valorCorpo = (typeof post !== 'undefined') ? post.corpo : '';
+       const textoBotao = (typeof post !== 'undefined') ? 'Salvar Alterações' : 'Enviar';
+    %>
+
+    <form action="<%= rotaAction %>" method="post">
+        <label for="titulo_in">Titulo</label>
+        <input type="text" id="titulo_in" name="titulo_in" value="<%= valorTitulo %>" required>
+
+        <label for="corpo">Conteúdo</label>
+        <!-- Usei textarea para o corpo, pois geralmente postagens são longas -->
+        <textarea id="corpo" name="corpo" required><%= valorCorpo %></textarea>
+
+        <input type="submit" value="<%= textoBotao %>" id="form_button">
+    </form>
+</div>
+
 
     </div>
    

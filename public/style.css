@@ -50,7 +50,7 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    min-width: 300px;
     padding: 20px;
     border: 1px solid #070926;
     border-radius: 10px;
@@ -82,6 +82,10 @@ form input {
     flex-direction: column;
 }
 
+textarea {
+    background-color:  #5B1D96;
+    color: aliceblue;
+}
 /*postagns*/
 
 .posts_style {
