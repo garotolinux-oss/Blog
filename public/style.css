@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #5B1D96;
-    grid-template-rows: auto 1fr 2fr auto;
+    grid-template-rows: auto 1fr 1fr auto;
 }
 #titulo {
     
@@ -18,6 +18,7 @@ body {
 .barra {
     background-color: #070926;
     padding: 20px;
+    
 }
 
 #nav_sup #a_sup {
@@ -92,10 +93,12 @@ textarea {
     background-color: #9F2CBF;
     text-align: center;
     width: 400px;
-    height: 200px;
+    min-height: 200px;
+    max-height: fit-content;
     border-radius: 10px;
     padding: 5px;
     margin: 15px;
+    
     
 }
 
@@ -109,7 +112,8 @@ textarea {
 
 #container_posts {
     display: flex;       /* Ativa o modo flexbox */
-    flex-wrap: wrap;     /* Permite que os itens quebrem para a linha de baixo */
+    flex-wrap: wrap; 
+    justify-content: center;    /* Permite que os itens quebrem para a linha de baixo */
              /* Cria um espaço entre as divs */
 }
 
